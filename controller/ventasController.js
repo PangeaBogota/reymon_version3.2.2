@@ -9,7 +9,7 @@ app_angular.controller("pedidoController",['Conexion','$scope','$location','$htt
 	$scope.TABLA_BALANCE=JSON.parse(window.localStorage.getItem("TABLA_BALANCE"));
 	$scope.SeleccionDocena=true;
 	$scope.sessiondate=JSON.parse(window.localStorage.getItem("CUR_USER"));
-	$scope.IdModalOpen="";
+	
 	if ($scope.sessiondate.codigo_empresa==12) 
 	{
 		$scope.url='http://reymonpruebas.pedidosonline.co';		
@@ -295,7 +295,6 @@ app_angular.controller("pedidoController",['Conexion','$scope','$location','$htt
 	$scope.TallasDocena=function()
 	{
 		$scope.ModalColorMasivo=true;
-		$scope.IdModalOpen="ColoresMasivoModalMedia";
 		$('#OpenModalColor').click();
 		if ($scope.ColorMasivo.length==0) {
 			$scope.CantidadDocena=12;
@@ -437,7 +436,6 @@ app_angular.controller("pedidoController",['Conexion','$scope','$location','$htt
 		}
 		$scope.CantidadTotalUnidadF();
 		$('#ColoresUnidad').click();
-		$scope.IdModalOpen="ColoresUnidadSeleccion";
 	}
 	$scope.openModalDetalle2=function(item,talla,cantidad){
 		if (cantidad==undefined) {
@@ -451,7 +449,6 @@ app_angular.controller("pedidoController",['Conexion','$scope','$location','$htt
 		$scope.consultaDetalle2(item,talla,cantidad);
 		$('#extension2').click();
 		$scope.ModalColorOpen=true;
-		$scope.IdModalOpen="extensionDetalle2";
 	}
 	$scope.InfoItemAdicional=[];
 	$scope.consultaDetalle2=function(item,talla,cantidad){
@@ -751,7 +748,6 @@ app_angular.controller("pedidoController",['Conexion','$scope','$location','$htt
 	{
 		$scope.ModalColorMasivo=true;
 		$('#OpenModalColorMedia').click();
-		$scope.IdModalOpen="ColoresMasivoModalMedia";
 		if ($scope.ColorMasivoMedia.length==0) {
 			CRUD.select("select distinct a.itemID,a.extencionDetalle2ID,0 as cantidad,d.rgba,d.url_imagen from erp_items_extenciones a inner join erp_item_extencion2_detalle d on d.rowid_erp=a.extencionDetalle2ID and a.extencion2ID=d.extencion2ID  where itemID='"+$scope.Item.rowid_item+"' order by extencionDetalle2ID",function(elem){
 				$scope.ColorMasivoMedia.push(elem);
@@ -1561,8 +1557,6 @@ app_angular.controller("pedidoController",['Conexion','$scope','$location','$htt
 	$scope.closeModalProducto=function()
 	{
 		$scope.openModalProductoC=false;
-		//$( "#"+$scope.IdModalOpen ).removeClass( "in" );
-		$( "#"+$scope.IdModalOpen ).css( "overflow-y","auto" );
 	}
 	$scope.confimar=[];
 	$scope.confimar.next=[]
@@ -1581,8 +1575,6 @@ app_angular.controller("pedidoController",['Conexion','$scope','$location','$htt
 			$scope.openModalProductoC=false;
 			event.preventDefault();
 			$('#btnCerrarModalProducto').click();
-			$( "#"+$scope.IdModalOpen ).removeClass( "in" );
-			$( "#"+$scope.IdModalOpen ).addClass( "in" );
 			return;
 		}
 		if ($scope.modalColorOpenBalance==true) 

@@ -9,7 +9,6 @@ app_angular.controller("pedidoController",['Conexion','$scope','$location','$htt
 	$scope.TABLA_BALANCE=JSON.parse(window.localStorage.getItem("TABLA_BALANCE"));
 	$scope.SeleccionDocena=true;
 	$scope.sessiondate=JSON.parse(window.localStorage.getItem("CUR_USER"));
-	
 	if ($scope.sessiondate.codigo_empresa==12) 
 	{
 		$scope.url='http://reymonpruebas.pedidosonline.co';		

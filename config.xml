@@ -4,8 +4,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        =  "com.phonegap.pedidosnline"
-        versionCode = "43" 
-        version   = "2.3.2">
+        versionCode = "44" 
+        version   = "2.3.3">
 
     <name>Reymon</name>
 
